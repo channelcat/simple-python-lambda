@@ -29,7 +29,7 @@ RUN ln -s /root/go/bin/watcher /usr/local/bin/watcher
 ADD serverless-watcher.sh /var/run/serverless-watcher.sh
 
 # Install python requirements
-ADD requirements.txt /tmp/requirements.txt
+ADD lambda/requirements.txt /tmp/requirements.txt
 RUN python3 -m pip install -r /tmp/requirements.txt -t /var/task/lib
 
-WORKDIR /var/task
+WORKDIR /var/task/
