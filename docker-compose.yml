@@ -1,0 +1,13 @@
+services:
+  lambda:
+    build: .
+    environment:
+      - AWS_ACCESS_KEY_ID
+      - AWS_SECRET_ACCESS_KEY
+    volumes:
+      - /var/task/lib
+      - ./lambda:/var/task/
+    ports:
+      - 3000:3000
+      - 3002:3002
+    command: watcher -ignore lib,.serverless,__pycache__ -startcmd -cmd 'bash /var/run/serverless-watcher.sh'

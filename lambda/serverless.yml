@@ -1,0 +1,23 @@
+service: example
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: python3.8
+  stage: prod
+  region: us-west-2
+
+plugins:
+  - serverless-offline
+
+package:
+  patterns:
+    - '!requirements.txt'
+    
+functions:
+  lambda_handler:
+    handler: lambda_function.lambda_handler
+    events:
+      - http:
+          path: /
+          method: get
