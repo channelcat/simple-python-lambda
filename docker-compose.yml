@@ -6,7 +6,7 @@ services:
       - AWS_SECRET_ACCESS_KEY
     volumes:
       - /var/task/lib
-      - ./lambda:/var/task/
+      - ./lambda:/var/task
     ports:
       - 3000:3000
       - 3002:3002

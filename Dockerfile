@@ -30,6 +30,6 @@ ADD serverless-watcher.sh /var/run/serverless-watcher.sh
 
 # Install python requirements
 ADD lambda/requirements.txt /tmp/requirements.txt
-RUN python3 -m pip install -r /tmp/requirements.txt -t /var/task/lib
+RUN mkdir -p /var/task/lib && pip install -r /tmp/requirements.txt --target /var/task/lib
 
 WORKDIR /var/task/
