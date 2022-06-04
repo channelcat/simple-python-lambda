@@ -16,6 +16,7 @@ RUN apk add --no-cache --update \
     openssl-dev \
     cargo \
     go \
+    git \
     nodejs npm
 
 # Install serverless
