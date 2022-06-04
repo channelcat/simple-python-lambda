@@ -24,8 +24,7 @@ RUN npm install -g serverless serverless-offline
 # Install watcher
 RUN git clone https://github.com/radovskyb/watcher /tmp/watcher
 WORKDIR /tmp/watcher
-RUN go mod init github.com/radovskyb/watcher
-RUN go install ...
+RUN go mod init github.com/radovskyb/watcher && go install ...
 RUN ln -s /root/go/bin/watcher /usr/local/bin/watcher
 ADD scripts/serverless-watcher.sh /var/run/serverless-watcher.sh
 
